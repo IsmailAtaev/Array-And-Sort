@@ -1,5 +1,6 @@
 package com.ataev.person;
 
+import com.ataev.Array.MyArray;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -57,5 +58,7 @@ public class PersonTest {
         int actually = p1.compareTo(p2);
         Assert.assertEquals(expected, actually);
     }
+
+
 
 }

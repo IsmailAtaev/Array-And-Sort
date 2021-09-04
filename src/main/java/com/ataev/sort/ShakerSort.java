@@ -8,15 +8,17 @@ import org.apache.logging.log4j.Logger;
 
 /**
  * auther Ataev Ismayyl
+ * @implNote ISort
+ * Худшая O(n^2)
+ * Средняя O(n^2)
+ * Лучшая O(n)
+ * Общая O(n)
  *  шейкер сортировка по возрастанию
  *  сперва мы сортируем по левой стороны 1 раз
  *  и уменьшаем параметр right на один элемент,
  *  затем мы сортируем по правой стороны и увеличиваем left на один элемент
- *  и повторяем пока наш массив не отсортируете
+ *  и повторяем пока наш массив не отсортируете или не дойдём до середины
  * */
-
-//TODO если мы один раз прошлись и массив был отсортирован то надо закончить цикл
-// если не было swap
 
 public class ShakerSort implements ISort {
 
@@ -24,9 +26,11 @@ public class ShakerSort implements ISort {
 
     @Override
     public void sort(MyArray array) {
+
         int swapCount = 0;
         int left = 0; // until the left side reaches the middle increase
         int right = array.getLength() - 1; // until the left side reaches the middle decrease
+
         while (left < right) {
 
             for (int i = 0; i < right; i++) {
@@ -48,6 +52,7 @@ public class ShakerSort implements ISort {
                 }
             }
             left++;
+
         }
     }
 }

@@ -13,7 +13,7 @@ public class MyArrayTest {
     }
 
     @Test
-    public void add() {
+    public void addTest() {
         MyArray array = new MyArray();
         array.add(new Person(33, "Isma"));
         array.add(new Person(88, "Arslan"));
@@ -57,6 +57,7 @@ public class MyArrayTest {
         int actually = array.compare(p1, p2);
         Assert.assertEquals(expected, actually);
     }
+
     @Test
     public void comparePositiveTest() {
         MyArray array = new MyArray();
@@ -86,4 +87,57 @@ public class MyArrayTest {
     @Test
     public void testToString() {
     }
+
+    @Test
+    public void takeTest() throws CloneNotSupportedException {
+
+        MyArray Array = new MyArray();
+        Array.add(new Person(20, "Ismail"));
+        Array.add(new Person(21, "Sultan"));
+        Array.add(new Person(33, "Ivan"));
+        Array.add(new Person(20, "Ali"));
+        Array.add(new Person(21, "Arslan"));
+        Array.add(new Person(21, "Merdan"));
+        Array.add(new Person(22, "Aman"));
+        Array.add(new Person(24, "Maksim"));
+        int mid = Array.getLength() / 2;
+
+        Person[] actuallyArray = new Person[mid];
+        actuallyArray[0] = (Person) Array.getIndex(0).clone();
+        actuallyArray[1] = (Person) Array.getIndex(1).clone();
+        actuallyArray[2] = (Person) Array.getIndex(2).clone();
+        actuallyArray[3] = (Person) Array.getIndex(3).clone();
+
+        Person[] expectedArray = Array.take(mid);
+
+        Assert.assertEquals(expectedArray, actuallyArray);
+
+        Array.add(new Person(23, "Kamar"));
+    }
+
+
+    @Test
+    public void skipTest() throws CloneNotSupportedException {
+
+        MyArray Array = new MyArray();
+        Array.add(new Person(20, "Ismail"));
+        Array.add(new Person(21, "Sultan"));
+        Array.add(new Person(33, "Ivan"));
+        Array.add(new Person(20, "Ali"));
+        Array.add(new Person(21, "Arslan"));
+        Array.add(new Person(21, "Merdan"));
+        Array.add(new Person(22, "Aman"));
+        Array.add(new Person(24, "Maksim"));
+        int mid = Array.getLength() / 2 ;
+
+        Person[] actuallyArray = new Person[mid];
+        actuallyArray[0] = (Person) Array.getIndex(4).clone();
+        actuallyArray[1] = (Person) Array.getIndex(5).clone();
+        actuallyArray[2] = (Person) Array.getIndex(6).clone();
+        actuallyArray[3] = (Person) Array.getIndex(7).clone();
+
+        Person[] expectedArray = Array.skip(mid);
+        Assert.assertEquals(expectedArray, actuallyArray);
+    }
+
 }

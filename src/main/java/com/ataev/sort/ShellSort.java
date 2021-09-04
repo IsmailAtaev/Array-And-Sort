@@ -3,6 +3,14 @@ package com.ataev.sort;
 import com.ataev.Array.MyArray;
 import com.ataev.person.Person;
 
+/**
+ * @author Ataev Ismayyl
+ * @implNote ISort override method sort
+ * @parametr MyArray
+ * квадратичное
+ * Лучшая	O(n)
+ * Общая	O(n)
+ * */
 
 public class ShellSort implements ISort {
     @Override

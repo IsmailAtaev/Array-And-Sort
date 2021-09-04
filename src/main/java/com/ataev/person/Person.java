@@ -1,5 +1,6 @@
 package com.ataev.person;
 
+import java.io.Serializable;
 import java.util.Objects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Level;
@@ -7,26 +8,27 @@ import org.apache.logging.log4j.Logger;
 
 /**
  * @author: Ataev Ismayyl
- * @param: logger for logging
- * @param: age human
- * @param: name human
- * @implNote: Comparable */
+ * @param: logger
+ * @param: age
+ * @param: name
+ * @implNote: Comparable
+ */
 
-public class Person implements Comparable<Person> {
+public class Person implements Comparable<Person> , Serializable {
 
     private static final Logger logger = LogManager.getLogger(Person.class);
     private int age;
     private String name;
 
+    public Person(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+
     public Person(Person person) {
         this.age = person.getAge();
         this.name = person.getName();
 
-    }
-
-    public Person(int age, String name) {
-        this.age = age;
-        this.name = name;
     }
 
     public void setPerson(Person p) {
@@ -64,7 +66,7 @@ public class Person implements Comparable<Person> {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
+    public Object clone() throws CloneNotSupportedException {
         return new Person(this.getAge(), this.getName());
     }
 
