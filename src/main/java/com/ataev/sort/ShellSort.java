@@ -13,6 +13,7 @@ import com.ataev.person.Person;
  * */
 
 public class ShellSort implements ISort {
+
     @Override
     public void sort(MyArray array) {
 

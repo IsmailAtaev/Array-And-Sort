@@ -12,7 +12,6 @@ public class InsertSort implements ISort {
 
         for (int i = 1; i < array.getLength(); i++) {
             Person temp = new Person(p[i]);
-            //   int j = i;
             int k = i;
             for (; k > 0; k--) {
                 if (temp.compareTo(p[k - 1]) == 1) {
@@ -21,11 +20,6 @@ public class InsertSort implements ISort {
                 p[k] = p[k - 1];
             }
             p[k] = temp;
-           /* while (j > 0 && (temp.compareTo(p[j - 1]) == -1)) {
-                p[j] = p[j - 1];
-                j--;
-            }
-            p[j] = temp;*/
         }
         array.serReference(p);
     }
